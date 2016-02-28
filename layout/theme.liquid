@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{ shop.name | escape }}</title>
+    <meta charset="utf-8">
+    <meta name="description" content="{{ shop.description }}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ content_for_header }}
+    {{ 'normalize.css' | asset_url | stylesheet_tag }}
+    {{ 'grid.css' | asset_url | stylesheet_tag }}
+    {{ 'styles.scss.css' | asset_url | stylesheet_tag }}
+    {{ 'https://fonts.googleapis.com/css?family=Unica+One|Karla:400,700' | stylesheet_tag }}
+    {{ 'https://code.jquery.com/jquery-1.12.1.min.js' | script_tag }}
+  </head>
+  <body class="no-js">
+    <nav id="navbar">
+      <section id="navbar-top">
+        <a id="navbar-brand" href="/">{{ shop.name | escape }}</a>
+      </section>
+
+      <div class="row">
+        <div class="col-md-6">
+          <ul class="navbar-main-menu">
+            {% for collection in collections %}
+              <li><a href="{{ collection.url }}">{{ collection.title | escape }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="col-md-6">
+          <ul class="navbar-main-menu right-aligned">
+            <li><a href="/cart">Cart ({{ cart.total_price | money }})</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <section id="content" class="container-fluid">
+      {{ content_for_layout }}
+    </section>
+
+    {{ 'app.js' | asset_url | script_tag }}
+  </body>
+</html>

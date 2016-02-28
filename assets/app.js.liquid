@@ -1,0 +1,24 @@
+/**
+ * app.js.liquid
+ *
+ * Javascript for the "Advanced Shopify theme development" course class project
+ * by Gavin Ballard, available on Skillshare.
+ *
+ * https://www.skillshare.com/classes/technology/Advanced-Shopify-Theme-Development/708093439/project-guide
+ */
+(function($) {
+
+  // Remove the JS class on the body.
+  $('body').removeClass('no-js');
+
+  // Handle a click on a "remove" button on the cart page.
+  $('[data-cart-remove]').click(function(e) {
+    $('#updates-item-' + $(this).data('cartRemove')).val(0);
+    $('#cart-form').submit();
+  });
+
+  //
+  // You can add your own Javascript here.
+  //
+
+})(jQuery);

@@ -1,0 +1,26 @@
+<header id="header">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>{{ product.title | escape }}</h1>
+    </div>
+  </div>
+</header>
+
+<section id="product">
+  <div class="row">
+    <div class="col-md-3">
+      <img src="{{ product.featured_image | product_img_url: 'grande' }}" class="img-responsive" alt="{{ product.title }}" />
+    </div>
+
+    <div class="col-md-9">
+      <p>
+        {{ product.description }}
+      </p>
+
+      <form action="/cart/add" method="post" role="form">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}" />
+        <button type="submit" class="button">Add to cart</button>
+      </form>
+    </div>
+  </div>
+</section>
