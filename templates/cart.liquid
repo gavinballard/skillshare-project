@@ -1,0 +1,43 @@
+<header id="header">
+  <div class="row">
+    <div class="col-sm-6">
+      <h1>Cart</h1>
+    </div>
+  </div>
+</header>
+
+<section id="cart">
+  {% if cart.item_count > 0 %}
+    <form id="cart-form" action="/cart" method="post" novalidate class="cart">
+      {% for item in cart.items %}
+      <div class="row row-space">
+        <div class="col-md-2">
+          <div class="product-image-wrapper">
+            <img src="{{ item | img_url: 'large' }}" alt="{{ item.title | escape }}" class="img-responsive" />
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h2>{{ item.title }}</h2>
+          <h3>{{ item.quantity }} &times; {{ item.price | money }} = {{ item.line_price | money }}</h3>
+          <input type="hidden" name="updates[]" id="updates-item-{{ forloop.index0 }}" value="{{ item.quantity }}" />
+          <button class="button button-default button-small" data-cart-remove="{{ forloop.index0 }}">Remove</button>
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="row row-space">
+        <div class="col-md-4 col-md-offset-2">
+          <h3>Total: {{ cart.total_price | money }}</h3>
+        </div>
+      </div>
+
+      <div class="row row-space">
+        <div class="col-md-4 col-md-offset-2">
+          <button type="submit" class="button" name="checkout">Check out</button>
+        </div>
+      </div>
+    </form>
+  {% else %}
+    <h2>Your cart is empty.</h2>
+  {% endif %}
+</section>

@@ -1,0 +1,37 @@
+{% paginate collection.products by 20 %}
+
+  <header id="header">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>{{ collection.title | escape }}</h1>
+      </div>
+    </div>
+  </header>
+
+  <section id="collection">
+    <div class="row center-xs">
+      {% for product in collection.products %}
+        <div class="col-md-2 col-sm-4 col-xs-6">
+          <div class="product">
+            <a href="{{ product.url }}" class="product-image-wrapper">
+              <img src="{{ product.featured_image | product_img_url: 'large' }}" class="img-responsive" />
+            </a>
+            <a href="{{ product.url }}">
+              <h4>{{ product.title }}</h4>
+            </a>
+            <h5>{{ product.price | money }}</h5>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  {% if paginate.pages > 1 %}
+  <section id="pagination" class="row center-xs">
+    <div class="col-xs-6">
+      {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
+    </div>
+  </section>
+  {% endif %}
+
+{% endpaginate %}

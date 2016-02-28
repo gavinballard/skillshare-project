@@ -1,0 +1,190 @@
+/**
+ * styles.scss.liquid
+ *
+ * Stylesheet for the "Advanced Shopify theme development" course class project
+ * by Gavin Ballard, available on Skillshare.
+ *
+ * https://www.skillshare.com/classes/technology/Advanced-Shopify-Theme-Development/708093439/project-guide
+ */
+
+//
+// Variables.
+//
+
+$body-bg-color: #f7f7f7;
+
+$navbar-bg-color: #000000;
+$navbar-color: #ffffff;
+$navbar-menu-color: #999999;
+$navbar-menu-hover-color: #ffffff;
+
+$button-bg-color: #006eff;
+$button-color: #ffffff;
+
+$font-family-headings: "Unica One", "HelveticaNeue", "Helvetica Neue", sans-serif;
+$font-family-body: "Karla", "HelveticaNeue", "Helvetica Neue", sans-serif;
+
+
+//
+// Layout.
+//
+
+html, body {
+  font-family: $font-family-body;
+  background-color: $body-bg-color;
+}
+
+.row-space {
+  margin-bottom: 30px;
+}
+
+#header {
+  margin: 30px 0;
+}
+
+#collection {
+  margin: 30px 0;
+}
+
+#product {
+  margin: 30px 0;
+}
+
+#cart {
+  margin: 30px 0;
+}
+
+#pagination {
+  margin: 30px 0;
+}
+
+
+//
+// Typography.
+//
+
+h1, h2, h3, h4 {
+  font-family: $font-family-headings;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+}
+
+
+//
+// Buttons.
+//
+
+.button {
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 15px 45px;
+  cursor: pointer;
+  background-color: $button-bg-color;
+  color: $button-color;
+  border: 1px solid transparent;
+  text-decoration: none;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 1.375;
+  font-family: $font-family-body;
+}
+
+.button-small {
+  padding: 5px 10px;
+  font-size: 0.85em;
+}
+
+.button-default {
+  background-color: white;
+  color: black;
+}
+
+
+//
+// Navbar.
+//
+
+#navbar {
+  background-color: $navbar-bg-color;
+}
+
+#navbar-top {
+  padding: 15px 30px;
+
+  font-size: 36px;
+  line-height: 48px;
+  color: $navbar-color;
+  font-family: $font-family-headings;
+}
+
+#navbar-top a {
+  color: $navbar-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $navbar-color;
+  }
+}
+
+.navbar-main-menu {
+
+  margin: 0;
+  padding: 15px;
+
+  li {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    a {
+      padding: 15px;
+
+      color: $navbar-menu-color;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      text-decoration: none;
+
+      &:hover {
+        color: $navbar-menu-hover-color;
+      }
+    }
+  }
+
+  &.right-aligned {
+    text-align: right;
+  }
+
+}
+
+
+//
+// Collection pages.
+//
+
+.product {
+
+}
+
+.product-image-wrapper {
+  display: block;
+  height: 240px;
+  overflow: hidden;
+}
+
+
+//
+// Utilities.
+//
+
+.img-responsive {
+  width: 100%;
+  max-width: 100%;
+}
+
+
+//
+// You can add your own SCSS here.
+//
